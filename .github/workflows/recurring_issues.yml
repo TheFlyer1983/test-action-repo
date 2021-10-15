@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: 38 15 15 10 *
+    - cron: 41 15 * * *
     
 jobs:
   create_issue: 
