@@ -1,0 +1,28 @@
+name: Monthly Maintenance Audit
+on:
+  schedule:
+    - cron: 28 16 15 10 *
+    
+jobs:
+  create_issue: Create Monthly Maintenance Audit Issue
+  runs-on: ubuntu-latest
+  permissions:
+    issues: write
+  steps:
+    - name: Create Monthly Maintenance Audit Issue
+      uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
+      with:
+        labels: 'maintenance, backend, audit'
+        title: 'Maintenance & Dependancy Update'
+        body: |
+          Update Outdated Packages and Dependancies
+          
+          **Acceptance Criteria**
+          
+          - Update any outdate packages
+          - Audit current packeages for vulnerabilities
+          - Update any dependancies with vulnerabilities
+        pinned: true
+        close-previous: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
