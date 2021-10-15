@@ -24,6 +24,6 @@ jobs:
             - Audit current packeages for vulnerabilities
             - Update any dependancies with vulnerabilities
           pinned: true
-          close-previous: false
+          close-previous: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
