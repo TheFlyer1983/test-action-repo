@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '45 14 * * *'
+    - cron: '00 14 * * *'
     
 jobs:
   create_issue: 
@@ -31,9 +31,9 @@ jobs:
     needs: create_issue
     runs-on: ubuntu-latest
     steps:
-      -   name: Assign to One Project
-          uses: srggrs/assign-one-project-github-action@1.2.1
-          if: github.event.action == 'opened'
-          with:
-            project: https://github.com/users/TheFlyer1983/projects/1
-            column_name: 'Backlog'
+      - name: Assign to One Project
+        uses: srggrs/assign-one-project-github-action@1.2.1
+        if: github.event.action == 'opened'
+        with:
+          project: https://github.com/users/TheFlyer1983/projects/1
+          column_name: 'Backlog'
