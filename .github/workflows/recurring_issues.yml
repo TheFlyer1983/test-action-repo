@@ -1,10 +1,8 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '25 14 * * *'
-env:
-  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-  
+    - cron: '50 14 * * *'
+
 jobs:
   create_issue: 
     name: Create Monthly Maintenance Audit Issue
@@ -25,17 +23,10 @@ jobs:
             - Update any outdate packages
             - Audit current packeages for vulnerabilities
             - Update any dependancies with vulnerabilities
+          project-type: user
+          project: 1
+          column: Backlog
           pinned: true
           close-previous: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  add_issues:
-    needs: create_issue
-    runs-on: ubuntu-latest
-    steps:
-      - name: Assign to One Project
-        uses: srggrs/assign-one-project-github-action@1.2.1
-        if: github.event.action == 'opened'
-        with:
-          project: https://github.com/users/TheFlyer1983/projects/1
-          column_name: 'Backlog'
