@@ -1,8 +1,10 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '00 14 * * *'
-    
+    - cron: '10 14 * * *'
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+  
 jobs:
   create_issue: 
     name: Create Monthly Maintenance Audit Issue
