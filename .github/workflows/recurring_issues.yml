@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '20 15 * * *'
+    - cron: '0 16 * * *'
 
 jobs:
   create_issue: 
@@ -13,6 +13,7 @@ jobs:
       - name: Create Monthly Maintenance Audit Issue
         uses: imjohnbo/issue-bot@v3.3.4
         with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
           labels: 'maintenance, backend, audit'
           title: 'Maintenance & Dependancy Update'
           body: |
