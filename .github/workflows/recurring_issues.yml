@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '50 14 * * *'
+    - cron: '20 15 * * *'
 
 jobs:
   create_issue: 
@@ -11,7 +11,7 @@ jobs:
       issues: write
     steps:
       - name: Create Monthly Maintenance Audit Issue
-        uses: imjohnbo/issue-bot@v3
+        uses: imjohnbo/issue-bot@v3.3.4
         with:
           labels: 'maintenance, backend, audit'
           title: 'Maintenance & Dependancy Update'
