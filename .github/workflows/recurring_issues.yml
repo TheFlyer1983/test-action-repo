@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '45 16 * * *'
 
 jobs:
   create_issue: 
@@ -24,9 +24,9 @@ jobs:
             - Update any outdate packages
             - Audit current packeages for vulnerabilities
             - Update any dependancies with vulnerabilities
-          project-type: user
-          project: 1
-          column: Backlog
+          # project-type: user
+          # project: 1
+          # column: Backlog
           pinned: true
           close-previous: true
         env:
