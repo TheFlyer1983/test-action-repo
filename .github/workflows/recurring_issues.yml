@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '45 16 * * *'
+    - cron: '40 19 * * *'
 
 jobs:
   create_issue: 
@@ -10,12 +10,15 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: Get current date
+        id: date
+        run: echo '::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Create Monthly Maintenance Audit Issue
         uses: imjohnbo/issue-bot@v3.3.4
         with:
           token: ${{ secrets.MY_GITHUB_TOKEN }}
           labels: 'maintenance, backend, audit'
-          title: 'Maintenance & Dependancy Update'
+          title: Maintenance & Dependancy Update - ${{ steps.data.outputs.data}}
           body: |
             Update Outdated Packages and Dependancies
           
