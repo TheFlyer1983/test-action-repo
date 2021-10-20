@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '07 10 * * *'
+    - cron: '20 10 * * *'
 
 jobs:
   create_issue: 
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+        run: echo "::set-output name=date::$(date +'%m-%Y')"
       - name: Create Monthly Maintenance Audit Issue
         uses: imjohnbo/issue-bot@v3.3.4
         with:
