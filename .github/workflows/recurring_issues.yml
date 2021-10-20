@@ -1,7 +1,7 @@
 name: Monthly Maintenance Audit
 on:
   schedule:
-    - cron: '55 19 * * *'
+    - cron: '30 09 * * *'
 
 jobs:
   create_issue: 
@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{ secrets.MY_GITHUB_TOKEN }}
           labels: 'maintenance, backend, audit'
-          title: Maintenance & Dependancy Update - ${{ steps.data.outputs.data}}
+          title: 'Maintenance & Dependancy Update - ${{ steps.data.outputs.data}}'
           body: |
             Update Outdated Packages and Dependancies
           
